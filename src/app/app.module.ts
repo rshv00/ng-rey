@@ -1,19 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {Route, RouterModule} from '@angular/router';
+import {Route, RouterModule, Routes} from '@angular/router';
 import {PHomeAdminComponent} from './admin/p-home-admin/p-home-admin.component';
 import {AdminModule} from './admin/admin.module';
 import {PAboutUsComponent} from './user/p-about-us/p-about-us.component';
 import {UserModule} from './user/user.module';
 import {UserComponent} from './user/user.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-const appRoutes: Route[] = [
-  {path: 'admin', component: PHomeAdminComponent},
-  {path: 'home', component: UserComponent},
-  {path: 'about', component: PAboutUsComponent},
-  {path: '', redirectTo: 'home'},
+const appRoutes: Routes = [
 ];
 
 @NgModule({
@@ -24,7 +21,8 @@ const appRoutes: Route[] = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     AdminModule,
-    UserModule
+    UserModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
